@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+    body
+      form(method="post" action="/todos")
+        div.form
+          input(type='text', name='task' value=newTask placeholder="enter task")
+          input(type="submit")
+      form
+        

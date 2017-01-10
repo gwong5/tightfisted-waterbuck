@@ -1,0 +1,33 @@
+{
+  "name": "tightfisted-waterbuck",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "db:init": "psql tasko < ./schema.sql"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "dotenv": "^4.0.0",
+    "express": "~4.14.0",
+    "morgan": "~1.7.0",
+    "nodemon": "^1.11.0",
+    "pg-promise": "^5.5.0",
+    "pug": "~2.0.0-beta6",
+    "serve-favicon": "~2.3.0"
+  },
+  "description": "Complete a to do list app deployed to heroku. ## Context",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kousagi1012/tightfisted-waterbuck.git"
+  },
+  "author": "Greg, Jackie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kousagi1012/tightfisted-waterbuck/issues"
+  },
+  "homepage": "https://github.com/kousagi1012/tightfisted-waterbuck#readme"
+}
