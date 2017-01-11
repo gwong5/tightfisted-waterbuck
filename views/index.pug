@@ -1,15 +1,19 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-    body
-      form(method="post" action="/todos")
-        div.form
-          input(type='text', name='task' value=newTask placeholder="enter task")
-          input(type="submit")
-      form
-        h3 Tasks
-          for task in tasks
-            div
-              li=task.task
+  h1 Welcome to #{title}
+
+  body
+    form(method="post" action="/todos")
+      div.form
+        input(type='text', name='task' value=newTask placeholder="enter task")
+        input(type="submit")
+    form
+      h3 Tasks
+        for task in tasks
+          div
+            input.checkbox(type='checkbox')
+            span= task.task
+      div
+        button complete
+        button delete  
