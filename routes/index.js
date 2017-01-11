@@ -4,12 +4,15 @@ const db = require('../database')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  db.getTasks()
-    .then(tasko => {
-      res.render('index', {
-        task
-      })
-    })
+    db.getTasks()
+        .then(tasks => {
+            res.render('index', {
+                title: 'Todos',
+                tasks
+            })
+        })
 })
+
+
 
 module.exports = router
