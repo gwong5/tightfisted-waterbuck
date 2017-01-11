@@ -9,4 +9,7 @@ block content
           input(type='text', name='task' value=newTask placeholder="enter task")
           input(type="submit")
       form
-        
+        h3 Tasks
+          for task in tasks
+            div
+              li=task.task
