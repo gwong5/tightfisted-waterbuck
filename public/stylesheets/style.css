@@ -10,3 +10,7 @@ body {
   padding: 50px;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
+
+.error{
+  color: red;
+}
