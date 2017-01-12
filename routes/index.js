@@ -3,7 +3,7 @@ const router = express.Router()
 const db = require('../database')
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', (req, res, next) => {
     db.getTasks()
         .then(tasks => {
             res.render('index', {
@@ -13,6 +13,11 @@ router.get('/', function(req, res, next) {
         })
 })
 
-
+router.post('/todos', (req, res) => {
+    var {
+        task
+    } = req.body
+    db.newTask(task).then(() => res.redirect('/'))
+})
 
 module.exports = router

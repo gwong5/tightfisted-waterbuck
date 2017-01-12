@@ -12,7 +12,7 @@ const getTasks = () =>
   db.any("SELECT * FROM tasko ORDER BY id ASC")
 
 const newTask = task =>
-  db.oneOrNone("INSERT INTO tasko(task) VALUES ($1)");
+  db.oneOrNone("INSERT INTO tasko (task) VALUES ($1)", [task]);
 
 // const deleteTask task =>
 // db.oneOrNone("DELETE FROM tasko WHERE id=")
