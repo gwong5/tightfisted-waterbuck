@@ -14,11 +14,11 @@ const getTasks = () =>
 const newTask = task =>
   db.oneOrNone("INSERT INTO tasko (task) VALUES ($1)", [task]);
 
-// const deleteTask task =>
-// db.oneOrNone("DELETE FROM tasko WHERE id=")
+const deleteTask = id =>
+ db.none("DELETE FROM tasko WHERE id in ($1:csv)", [id]);
 
 // const updateTask = task =>
 //   db.oneOrNone(" ")
 
 
-module.exports = {getTasks, newTask};
+module.exports = {getTasks, newTask, deleteTask};

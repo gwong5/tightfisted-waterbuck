@@ -13,11 +13,22 @@ router.get('/', (req, res, next) => {
         })
 })
 
-router.post('/todos', (req, res) => {
+router.post('/', (req, res) => {
     var {
         task
     } = req.body
+    task.length === 0 ?
+    db.getTasks()
+        .then(tasks => res.redirect('/')):
     db.newTask(task).then(() => res.redirect('/'))
 })
+
+router.post('/modify', (req, res) => {
+    // 'delete' in req.body
+    db.deleteTask(req.body.task)
+    // 'complete' in req.body ?
+    res.redirect('/')
+  })
+
 
 module.exports = router
