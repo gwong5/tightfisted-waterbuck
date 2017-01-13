@@ -18,7 +18,8 @@ block content
         else
           div
             input.checkbox(name="task" value=task.id type="checkbox")
-            span(name="edit" type="edit")= task.task
+            span(name="edit" type="edit" contenteditable="false")= task.task
+      br
       div
         button(name="complete" type="complete") complete
         button(name="delete" type="delete") delete
