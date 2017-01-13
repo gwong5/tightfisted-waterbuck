@@ -12,13 +12,16 @@ const getTasks = () =>
   db.any("SELECT * FROM tasko ORDER BY id ASC")
 
 const newTask = task =>
-  db.oneOrNone("INSERT INTO tasko (task) VALUES ($1)", [task]);
+  db.none("INSERT INTO tasko (task) VALUES ($1)", [task]);
 
 const deleteTask = id =>
  db.none("DELETE FROM tasko WHERE id in ($1:csv)", [id]);
+
+const completeTask = id =>
+  db.none("UPDATE tasko SET complete=TRUE WHERE id IN ($1:csv)", [id]);
 
 // const updateTask = task =>
 //   db.oneOrNone(" ")
 
 
-module.exports = {getTasks, newTask, deleteTask};
+module.exports = {getTasks, newTask, deleteTask, completeTask};

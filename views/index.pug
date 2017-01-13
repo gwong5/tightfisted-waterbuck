@@ -10,10 +10,15 @@ block content
         input(type="submit")
     form(method="post" action="/modify")
       h3 Tasks
-        for task in tasks
+      for task in tasks
+        if task.complete
           div
-            input.checkbox(name="task" id=task.id value=task.id type='checkbox')
-            span(id=task.id name="edit" type="edit")= task.task
+            input.checkbox(name="task" value=task.id type="checkbox")
+            span(class="completed")= task.task
+        else
+          div
+            input.checkbox(name="task" value=task.id type="checkbox")
+            span(name="edit" type="edit")= task.task
       div
         button(name="complete" type="complete") complete
         button(name="delete" type="delete") delete

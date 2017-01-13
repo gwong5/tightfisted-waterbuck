@@ -17,17 +17,23 @@ router.post('/', (req, res) => {
     var {
         task
     } = req.body
-    task.length === 0 ?
+    if (task.length === 0) {
     db.getTasks()
-        .then(tasks => res.redirect('/')):
+        .then(tasks => res.redirect('/'))
+    } else {
     db.newTask(task).then(() => res.redirect('/'))
+  }
 })
 
 router.post('/modify', (req, res) => {
-    // 'delete' in req.body
+    if ('delete' in req.body) {
     db.deleteTask(req.body.task)
-    // 'complete' in req.body ?
-    res.redirect('/')
+  } else if ('complete' in req.body) {
+    db.completeTask(req.body.task)
+  } else if ('edit' in request.body) {
+    db.editTask(req.body.task)
+  }
+  res.redirect('/')
   })
 
 
